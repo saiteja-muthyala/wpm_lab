@@ -1,0 +1,46 @@
+const express = require('express');
+const router = express.Router();
+const ctrlLocations = 
+require('../controllers/locations');
+const ctrlOthers = require('../controllers/others');
+/* Locations pages */
+router.get('/', ctrlLocations.homelist);
+router.get('/location', ctrlLocations.locationInfo);
+router.get('/location/review/new', ctrlLocations.addReview);
+/* Other pages */
+router.get('/about', ctrlOthers.about);
+module.exports = router
+
+INDEX.JS
+____________________________________________________________________________________________________________
+
+/* GET 'about' page */
+const about = (req, res) => {
+ res.render('index', { title: 'About' });
+};
+module.exports = {
+ about
+};
+
+OTHERS.JS
+_____________________________________________________________________________________________________________
+/* GET 'home' page */
+const homelist = (req, res) => {
+ res.render('index', { title: 'Home' });
+};
+/* GET 'Location info' page */
+const locationInfo = (req, res) => {
+ res.render('index', { title: 'Location info' });
+};
+/* GET 'Add review' page */
+const addReview = (req, res) => {
+ res.render('index', { title: 'Add review' });
+};
+module.exports = {
+ homelist,
+ locationInfo,
+ addReview
+};
+
+LOCATIONS.JS
+_________________________________________________________________________________________________________
